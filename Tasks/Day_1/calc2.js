@@ -1,7 +1,7 @@
 
 const isAddOrEven = (x)=>{
 
-      if(  x%2==0  )
+      if(  x/2==0  )
       {
           return console.log( ` ${x} is even no`  );
       }
@@ -14,3 +14,31 @@ const isAddOrEven = (x)=>{
 
 
 export default isAddOrEven;
+
+export const isPrime = (y)=>{
+
+
+        for(  let i = 2 ; i < y ;  i++  )
+            {
+                  if(  y/i==0  )
+                  {
+                      return console.log(  `  ${y} is not a prime number  `  );
+                  }
+                  else
+                  {
+                      return console.log(  `  ${y} is a prime number   `  );
+                  }
+            }   
+
+
+};
+
+
+export const timer = (x)=>{
+
+     
+        setTimeout( ()=>{  console.log(x);   clearInterval(int);   }  ,  4000  );
+
+        const int = setInterval( ()=>{  console.log("hii");    }  , 2000  )
+
+}

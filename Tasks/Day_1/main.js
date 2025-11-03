@@ -1,6 +1,6 @@
 import add , {  sub  ,  mul  } from './calc.js';
 
-import isAddOrEven from './calc2.js';
+import isAddOrEven , { isPrime , timer } from './calc2.js';
 
 
 
@@ -10,4 +10,8 @@ import isAddOrEven from './calc2.js';
 
  console.log(   mul(9,9)   );
 
- console.log(  isAddOrEven(6)  );
+   isAddOrEven(6);
+
+   isPrime(8); 
+
+ timer("paapu");
