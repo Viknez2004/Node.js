@@ -12,6 +12,16 @@ const isAddOrEven = (x)=>{
 
 };
 
+export const leo=(o)=>{
+
+
+    if(o==="vijay")
+    {
+        return console.log("he is leo")
+    }
+
+}
+
 
 export default isAddOrEven;
 
@@ -35,6 +45,7 @@ export const isPrime = (y)=>{
 
 
 export const timer = (x)=>{
+    
 
      
         setTimeout( ()=>{  console.log(x);   clearInterval(int);   }  ,  4000  );

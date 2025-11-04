@@ -1,0 +1,5 @@
+  Diff Between setTimeout and setInterval .....     /n                       setTimeout and setInterval both were a functions ,   setTimeout used to executes a function once after a delay we specified manually ,,,,,, whereas setInterval executes a function repeatedly untill we clear it manually,,,, 
+
+
+  
+          

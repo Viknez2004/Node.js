@@ -1,0 +1,1 @@
+ let x = 11 /n   let x = 121;/n let rev =0;/n while(x>0){  let y = x%10; let rev=rev*10+y;  }  console.log(rev); 

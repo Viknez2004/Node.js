@@ -1,6 +1,6 @@
 import add , {  sub  ,  mul  } from './calc.js';
 
-import isAddOrEven , { isPrime , timer } from './calc2.js';
+import isAddOrEven , { isPrime , timer , leo } from './calc2.js';
 
 
 
@@ -15,3 +15,16 @@ import isAddOrEven , { isPrime , timer } from './calc2.js';
    isPrime(8); 
 
  timer("paapu");
+
+ const obj = {  name:"viknez" , age:21 , native :"chennai" , 
+                school:{ sixth:"nirmala" , twelth:"rct" , college:{ viknez:"arts" , abinez:"au" } }  };
+
+
+          console.log(  obj.school.college.abinez );
+
+         leo("vijay") ;
+
+
+
+
+          
