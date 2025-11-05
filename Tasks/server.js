@@ -3,12 +3,12 @@ import http from 'http';
 import fs from 'fs';
 
 
-const port = 3001;
+const port = 3000;
 
 let server = http.createServer(    );
 
 
-server.listen(  port , ()=>{   console.log(  `https/leobooking/${port}`  )   }  );
+server.listen(  port , (err)=>{ if(err){throw err;} else{  console.log(  `https/leomoviebooking/${port}`  ) }   }  );
 
 
 if(  fs.existsSync("Day_3/leoserver/Home.js")==false  )
