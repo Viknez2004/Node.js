@@ -2,13 +2,41 @@ import http from 'http';
 
 import fs from 'fs';
 
+import express from 'express';
 
-const port = 3000;
+import env from 'dotenv';
 
-let server = http.createServer(    );
+env.config();
+
+const app = express();
+
+const PORT = process.env.Port   ||  4007  ;
+
+app.listen(  PORT , ()=>{   console.log(`  http:/localhost:${PORT}  `)   }  );
 
 
-server.listen(  port , (err)=>{ if(err){throw err;} else{  console.log(  `https/leomoviebooking/${port}`  ) }   }  );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const port = 3000;
+
+// let server = http.createServer(    );
+
+
+// server.listen(  port , (err)=>{ if(err){throw err;} else{  console.log(  `https/leomoviebooking/${port}`  ) }   }  );
 
 
 if(  fs.existsSync("Day_3/leoserver/Home.js")==false  )
