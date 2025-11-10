@@ -1,25 +1,21 @@
 import express from 'express';
-
 import dotenv from 'dotenv';
-
 import cors from 'cors';
-
-import authRoutes from './Day_5/Routes/authRoutes.js';
+import avengerroutes from './Day_6/Routes/avengerroutes.js';
 
 dotenv.config();
 
+const app=express();
+
+app.use( express.json() );
+
+app.use( cors() );
+
 const PORT = process.env.PORT;
 
+app.listen( PORT , ()=>{  console.log(`http://localhost:${PORT}`)  } );
 
-const app = express();
-
-app.listen(  PORT  ,  ()=>{  console.log(`http://localhost:${PORT}`)}  );
-
-app.use(cors());
-
-app.use(  express.json()  );
-
-app.use(  "/api/auth" , authRoutes  );
+app.use( '/api/route' , avengerroutes )
 
 
 
