@@ -1,25 +1,30 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import routehandler from './Day_8/routes/routehandler.js';
+import connectDb from './Day_9/config/db.js';
 import cors from 'cors';
-import dbConnect from './Day_8/config/db.js';
+import AuthRouteshandler from './Day_9/routes/AuthRouteshandler.js';
 
 dotenv.config();
 
+connectDb();
+
 const app=express();
 
-app.use( express.json() );
+app.use(express.json());
 
-app.use( cors() );
+app.use(cors());
 
-const PORT = process.env.PORT;
+const PORT=process.env.PORT;
 
-app.listen( PORT ,  ()=>{  console.log(`http://localhost:${PORT}`)  }  );
+app.listen(PORT , ()=>{
 
-dbConnect();
+    console.log(`http://localhost:${PORT}`);
+});
+
+app.use(  "/api/basetoroute" , AuthRouteshandler  );
 
 
-app.use(  "/api/base" , routehandler  );
 
 
+// http://localhost:3000/api/basetoroute
 
