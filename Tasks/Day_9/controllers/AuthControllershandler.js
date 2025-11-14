@@ -49,3 +49,31 @@ export const showfavperdatas=async(req,res)=>{
              res.status(200).json({favperdatas:temp});
 
 };
+
+export const findid=async(req,res)=>{
+
+         console.log(req.params);
+
+         const {id} = req.params;
+        
+          const temp=await favperregmodel.findById(id);
+
+          res.status(200).json({user:temp});
+
+
+};
+
+
+
+export const editfavper=async(req,res)=>{
+
+          console.log(req.params);
+
+          console.log(req.body);
+
+
+
+          const temp = await favperregmodel.findByIdAndUpdate( req.params.id , req.body , {new:true} );
+
+          res.status(200).json(  { msg:"successfully edited"  }  );
+};

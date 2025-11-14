@@ -45,13 +45,6 @@ const App=()=>{
 
       };
 
-      useEffect(  ()=>{ 
-        
-                        fetchreg();
-
-                        fetchfavper();
-      
-      }  , []  );
 
       
 
@@ -71,6 +64,27 @@ const App=()=>{
             console.log(  favperregresult.data.datas  );
 
             
+
+      };
+
+      
+      useEffect(  ()=>{ 
+        
+                        fetchreg();
+
+                        fetchfavper();
+      
+      }  , []  );
+
+      const [editbtn,setEditbtn] = useState(false);
+
+      const handleedit=async()=>{
+
+              const resedit=await axios.get("http://localhost:3000/api/basetoroute/editfav");
+
+                alert( resedit.data.msg )
+
+                setEditbtn(!editbtn);
 
       };
 
@@ -129,28 +143,28 @@ return <>
    
                <div>
                      <label>Name:</label> 
-                      <input name="name" placeholder="enter your fav person name" onChange={handlefavpersonchange}/>
+                      <input name="name" value={favperson.name} placeholder="enter your fav person name" onChange={handlefavpersonchange}/>
                </div>
 
                <br></br>
                
                <div>
                      <label>Current role:</label> 
-                      <input name="role" placeholder="enter his/her role" onChange={handlefavpersonchange}/>
+                      <input name="role" value={favperson.role} placeholder="enter his/her role" onChange={handlefavpersonchange}/>
                </div>
                <br></br>
                <div>
                      <label>City:</label> 
-                      <input name="city" placeholder="enter city" onChange={handlefavpersonchange}/>
+                      <input name="city" value={favperson.city} placeholder="enter city" onChange={handlefavpersonchange}/>
                </div>
                <br></br>
                <div>
                      <label>Net worth:</label> 
-                      <input name="networth" placeholder="enter net worth" onChange={handlefavpersonchange}/>
+                      <input name="networth" value={favperson.networth} placeholder="enter net worth" onChange={handlefavpersonchange}/>
                </div>
                <br></br>
                <div>
-                     <input type="submit" />
+                     {  editbtn?<button onClick={handleedit} >Edit</button>:<input type="submit" />  }                     
                </div>
 
              </form>
@@ -166,10 +180,27 @@ return <>
                               <h2>{e.role}</h2> 
                               <h2>{e.city}</h2> 
                               <h2>{e.networth}</h2> 
+                              <button onClick={ async()=>{
+
+                  let temp=await axios.get(`http://localhost:3000/api/basetoroute/find/${e._id}`);
+                  console.log(temp.data.user)
+                  setFavperson(temp.data.user);
+                  alert(temp.data.msg);
+                  setEditbtn(!editbtn);
+
+                              } } >Edit</button>
 
 
              </div>    ))  }
       </div>
+
+
+
+     <br></br>
+
+     <br></br>
+
+     
 </>
 
 };
